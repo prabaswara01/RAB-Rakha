@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estimasi RAB</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #007BFF; /* Warna latar belakang biru */
+      color: #fff; /* Warna teks putih */
+    }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang kontainer dengan transparansi */
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input {
+      width: calc(100% - 16px);
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #fff; /* Warna tombol putih */
+      color: #007BFF; /* Warna teks tombol biru */
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #ddd; /* Warna latar belakang tombol saat dihover */
+    }
+
+    #result {
+      margin-top: 16px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Estimasi RAB</h2>
+  <label for="luas">Luas (m<sup>2</sup>):</label>
+  <input type="number" id="luas" placeholder="Masukkan luas">
+
+  <label for="harga">Harga per Meter:</label>
+  <input type="number" id="harga" placeholder="Masukkan harga per meter">
+
+  <button onclick="hitungEstimasi()">Hitung</button>
+
+  <div id="result"></div>
+</div>
+
+<script>
+  function hitungEstimasi() {
+    var luas = parseFloat(document.getElementById('luas').value);
+    var harga = parseFloat(document.getElementById('harga').value);
+
+    if (!isNaN(luas) && !isNaN(harga)) {
+      var hasil = luas * harga;
+      document.getElementById('result').innerHTML = 'Estimasi RAB: Rp ' + hasil.toFixed(2);
+    } else {
+      document.getElementById('result').innerHTML = 'Masukkan nilai yang valid untuk luas dan harga.';
+    }
+  }
+</script>
+
+</body>
+</html>
